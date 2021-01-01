@@ -40,7 +40,7 @@ class LinkedList {
 
       Node currNode = head;
 
-      System.out.println("Linked List: ");
+      System.out.print("Linked List: ");
 
       while (currNode != null) {
          System.out.print(currNode.data + " ");
@@ -82,13 +82,18 @@ class LinkedList {
          System.out.println("List is Empty");
 
       while (currNode != null) {
-         if (currNode.data == key) {
+         if (pos == 0) {
             head = currNode.next;
-            System.out.printf("\n\nkey %d found and deleted\n", key);
-         }
-         if (currNode.data != key && currNode.next != null) {
+            System.out.printf("\n\nData at %d deleted\n", pos);
+            break;
+         } else if (pos == counter) {
+            prev.next = currNode.next;
+            System.out.printf("\n\nData at %d is deleted\n", pos);
+            break;
+         } else {
             prev = currNode;
             currNode = currNode.next;
+            counter++;
          }
       }
       // // CASE 1
@@ -145,8 +150,12 @@ class LinkedList {
          }
       }
 
-      if (currNode == null)
-         System.out.printf("\n\nPosition %d is out of bound\n", counter);
+      if (currNode == null && counter == 0) {
+         System.err.print("\n\nList is Empty\n");
+      } else {
+         System.out.println("\nIndex out of bound. Cannot delete.");
+      }
+
    }
 
    /*

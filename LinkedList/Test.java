@@ -14,7 +14,7 @@ public class Test {
       // list.deleteByKey(2);
       // list.printList();
       // System.out.println("-------------");
-      list.deleteAtPosition(2);
+      list.deleteAtPosition(22);
       // list.printList();
       System.out.println("-------------");
       // list.deleteAllKeys(1);
