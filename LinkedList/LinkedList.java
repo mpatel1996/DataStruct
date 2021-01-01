@@ -40,7 +40,7 @@ class LinkedList {
 
       Node currNode = head;
 
-      System.out.print("Linked List: ");
+      System.out.print("\nLinked List: ");
 
       while (currNode != null) {
          System.out.print(currNode.data + " ");
@@ -52,12 +52,13 @@ class LinkedList {
       Node currNode = head;
       Node prev = null;
 
+      if (currNode == null)
+         System.out.println("List Empty");
       // CASE 1
       // if the key is the head
       if (currNode != null && currNode.data == key) {
          head = currNode.next;
-
-         System.out.printf("\n\nkey %d found and deleted\n", key);
+         // System.out.printf("\n\nkey %d found and deleted\n", key);
       }
 
       // CASE 2 && CASE 3
@@ -69,53 +70,7 @@ class LinkedList {
       }
       if (currNode != null) {
          prev.next = currNode.next;
-         System.out.printf("\n\nkey %d found and deleted\n", key);
-      } else if (currNode == null)
-         System.out.printf("\n\nkey %d not found\n", key);
-   }
-
-   public void deleteAllKeys(int key) {
-      Node currNode = head;
-      Node prev = null;
-      int counter = 0;
-      if (currNode == null)
-         System.out.println("List is Empty");
-
-      while (currNode != null) {
-         if (pos == 0) {
-            head = currNode.next;
-            System.out.printf("\n\nData at %d deleted\n", pos);
-            break;
-         } else if (pos == counter) {
-            prev.next = currNode.next;
-            System.out.printf("\n\nData at %d is deleted\n", pos);
-            break;
-         } else {
-            prev = currNode;
-            currNode = currNode.next;
-            counter++;
-         }
       }
-      // // CASE 1
-      // // if the key is the head
-      // if (currNode != null && currNode.data == key) {
-      // // head = currNode.next;
-      // prev = currNode;
-      // currNode = currNode.next;
-      // System.out.printf("\n\nkey %d found and deleted\n", key);
-      // }
-      // while (currNode != null || currNode.data != key) {
-      // prev = currNode;
-      // currNode = currNode.next;
-      // System.out.println("In if");
-      // }
-      // if (key == currNode.data) {
-      // prev.next = currNode.next;
-      // System.out.println("IN ELSE IF");
-      // }
-
-      // if (currNode == null)
-      // System.out.println("List is Empty or all keys deleted");
    }
 
    public void deleteAtPosition(int pos) {
@@ -123,25 +78,19 @@ class LinkedList {
       Node currNode = head;
       Node prev = null;
       int counter = 0;
-      // CASE 1
-      // if the pos is 0, delete the head
-      // if (currNode != null && pos == 0) {
-      // head = currNode.next;
-      // System.out.printf("\n\nData at %d deleted\n", pos);
-      // }
 
-      // CASE 2 && 3
-      // If position > 0 and less than list length
-      // ELSE print error. Position out of bound
+      if (currNode == null) {
+         System.out.println("\nList Empty.");
+      }
 
       while (currNode != null) {
          if (pos == 0) {
             head = currNode.next;
-            System.out.printf("\n\nData at %d deleted\n", pos);
+            // System.out.printf("\n\nData at %d deleted\n", pos);
             break;
          } else if (pos == counter) {
             prev.next = currNode.next;
-            System.out.printf("\n\nData at %d is deleted\n", pos);
+            // System.out.printf("\n\nData at %d is deleted\n", pos);
             break;
          } else {
             prev = currNode;
@@ -149,13 +98,6 @@ class LinkedList {
             counter++;
          }
       }
-
-      if (currNode == null && counter == 0) {
-         System.err.print("\n\nList is Empty\n");
-      } else {
-         System.out.println("\nIndex out of bound. Cannot delete.");
-      }
-
    }
 
    /*
@@ -176,9 +118,9 @@ class LinkedList {
       }
 
       if (doesHave) {
-         System.out.printf("\n\nLinked List contains %d", key);
+         System.out.printf("\n\nLinked List contains %d\n", key);
       } else {
-         System.out.printf("\n\nLinked List does not Contain %d", key);
+         System.out.printf("\n\nLinked List does not Contain %d\n", key);
       }
    }
 
@@ -190,6 +132,8 @@ class LinkedList {
       Node currNode = head;
       int counter = 0;
 
+      if (currNode == null)
+         System.out.println("List is Empty");
       while (currNode != null) {
          if (currNode.data == key) {
             break;
@@ -199,8 +143,6 @@ class LinkedList {
          }
       }
 
-      if (currNode == null)
-         System.out.println("List is Empty");
       return counter;
    }
 
