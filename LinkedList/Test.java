@@ -9,11 +9,13 @@ public class Test {
          list.add(rnd.nextInt(5));
       }
 
-      list.printList(list);
+      list.printList();
       list.deleteByKey(7);
-      list.printList(list);
+      list.printList();
       list.deleteAtPosition(1);
-      list.printList(list);
+      list.printList();
 
+      list.listHas(3);
+      System.out.println("\nIndex found at " + list.getPos(2));
    }
 }
