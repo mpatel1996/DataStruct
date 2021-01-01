@@ -6,7 +6,7 @@ public class Test {
       Random rnd = new Random();
 
       for (int i = 0; i < 9; i++) {
-         list.insert(list, rnd.nextInt(5));
+         list.add(list, rnd.nextInt(5));
       }
       list.printList(list);
 

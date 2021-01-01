@@ -16,7 +16,7 @@ class LinkedList {
       }
    }
 
-   public LinkedList insert(LinkedList list, int data) {
+   public LinkedList add(LinkedList list, int data) {
 
       // Create new Node to insert with data being passed
       Node newNode = list.new Node(data);
@@ -52,6 +52,7 @@ class LinkedList {
    public LinkedList deleteByKey(LinkedList list, int key) {
       Node currNode = list.head;
       Node prev = null;
+
       // CASE 1
       // if the key is the head
       if (currNode != null && currNode.data == key) {
@@ -60,24 +61,40 @@ class LinkedList {
          System.out.println("key found and deleted");
          return list;
       }
-      // CASE 2
-      // If the key is anything but the head
+
+      // CASE 2 && CASE 3
+      // If the key is anything but the head delete it
+      // ELSE print no key is found
       while (currNode != null && currNode.data != key) {
          prev = currNode;
          currNode = currNode.next;
       }
-
       if (currNode != null) {
          prev.next = currNode.next;
          System.out.println("Key found and deleted");
-      }
-
-      // CASE 3
-      // Key is not found
-      if (currNode == null)
+      } else if (currNode == null)
          System.out.println("key not in list");
 
       return list;
    }
 
+   public LinkedList deleteAtPosition(LinkedList list, int pos){
+
+      Node currNode = list.head;
+      Node prev = null;
+
+      // CASE 1
+      // if the pos is 0, delete the head
+      if (currNode != null && pos == 0){
+         list.head = currNode.next;
+         System.out.printf("Data at %d deleted", pos);
+
+         return list;
+      }
+
+      // CASE 2 && 3
+      // If position > 0 and less than list length
+      // ELSE print error. Position out of bound
+      return list;
+   }
 }
