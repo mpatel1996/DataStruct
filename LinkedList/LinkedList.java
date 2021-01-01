@@ -10,30 +10,30 @@ class LinkedList {
 
       // Construct of the class Node to create a new node
       Node(int d) {
-         data = d;
-         next = null;
+         this.data = d;
+         this.next = null;
       }
    }
 
-   public LinkedList add(LinkedList list, int data) {
+   public void add(int data) {
 
       // Create new Node to insert with data being passed
-      Node newNode = list.new Node(data);
+      Node newNode = new Node(data);
       // Make sure its next is pointing to null
       newNode.next = null;
 
       // If list.head is null, make the new node there, else traverse down the list
-      if (list.head == null)
-         list.head = newNode;
+      if (head == null)
+         head = newNode;
       else {
-         Node last = list.head;
+         Node last = head;
          while (last.next != null) {
             last = last.next;
          }
 
          last.next = newNode;
       }
-      return list;
+      // return list;
    }
 
    public void printList(LinkedList list) {
@@ -48,17 +48,16 @@ class LinkedList {
       }
    }
 
-   public LinkedList deleteByKey(LinkedList list, int key) {
-      Node currNode = list.head;
+   public void deleteByKey(int key) {
+      Node currNode = head;
       Node prev = null;
 
       // CASE 1
       // if the key is the head
       if (currNode != null && currNode.data == key) {
-         list.head = currNode.next;
+         head = currNode.next;
 
-         System.out.println("key found and deleted");
-         return list;
+         System.out.printf("\n\nkey %d found and deleted\n", key);         
       }
 
       // CASE 2 && CASE 3
@@ -70,25 +69,23 @@ class LinkedList {
       }
       if (currNode != null) {
          prev.next = currNode.next;
-         System.out.println("Key found and deleted");
+         System.out.printf("\n\nkey %d found and deleted\n", key);
       } else if (currNode == null)
-         System.out.println("key not in list");
+         System.out.printf("\n\nkey %d not found\n", key);
 
-      return list;
    }
 
-   public LinkedList deleteAtPosition(LinkedList list, int pos) {
+   public void deleteAtPosition(int pos) {
 
-      Node currNode = list.head;
+      Node currNode = head;
       Node prev = null;
 
       // CASE 1
       // if the pos is 0, delete the head
       if (currNode != null && pos == 0) {
-         list.head = currNode.next;
-         System.out.printf("Data at %d deleted", pos);
+         head = currNode.next;
+         System.out.printf("\n\nData at %d deleted\n", pos);
 
-         return list;
       }
 
       // CASE 2 && 3
@@ -98,7 +95,7 @@ class LinkedList {
       while (currNode != null) {
          if (pos == counter) {
             prev.next = currNode.next;
-            System.out.printf("Data at %d is deleted", pos);
+            System.out.printf("\n\nData at %d is deleted\n", pos);
             break;
          } else {
             prev = currNode;
@@ -108,7 +105,6 @@ class LinkedList {
       }
 
       if (currNode == null)
-         System.out.printf("Data at %d is deleted", pos);
-      return list;
+         System.out.printf("\n\nPosition %d is out of bound\n", pos);
    }
 }

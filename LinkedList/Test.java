@@ -6,15 +6,14 @@ public class Test {
       Random rnd = new Random();
 
       for (int i = 0; i < 9; i++) {
-         list.add(list, rnd.nextInt(5));
+         list.add(rnd.nextInt(5));
       }
 
       list.printList(list);
-      list.deleteByKey(list, 4);
+      list.deleteByKey(7);
       list.printList(list);
-      list.deleteAtPosition(list, 1);
+      list.deleteAtPosition(1);
       list.printList(list);
 
-      
    }
 }
