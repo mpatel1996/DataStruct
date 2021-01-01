@@ -3,19 +3,24 @@ import java.util.Random;
 public class Test {
    public static void main(String[] args) {
       LinkedList list = new LinkedList();
-      Random rnd = new Random();
+      // Random rnd = new Random();
+      list.add(0);
 
       for (int i = 0; i < 9; i++) {
-         list.add(rnd.nextInt(5));
+         list.add(i);
       }
 
       list.printList();
-      list.deleteByKey(7);
+      // list.deleteByKey(2);
+      // list.printList();
+      // System.out.println("-------------");
+      list.deleteAtPosition(2);
+      // list.printList();
+      System.out.println("-------------");
+      // list.deleteAllKeys(1);
       list.printList();
-      list.deleteAtPosition(1);
-      list.printList();
-
-      list.listHas(3);
-      System.out.println("\nIndex found at " + list.getPos(2));
+      // System.out.println("-------------");
+      // list.listHas(3);
+      // System.out.println("\nIndex found at " + list.getPos(2));
    }
 }
