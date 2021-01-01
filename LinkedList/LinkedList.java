@@ -2,7 +2,6 @@
 
 // Creating a Class for Linked List Nodes
 class LinkedList {
-
    Node head;
 
    class Node {
@@ -78,14 +77,14 @@ class LinkedList {
       return list;
    }
 
-   public LinkedList deleteAtPosition(LinkedList list, int pos){
+   public LinkedList deleteAtPosition(LinkedList list, int pos) {
 
       Node currNode = list.head;
       Node prev = null;
 
       // CASE 1
       // if the pos is 0, delete the head
-      if (currNode != null && pos == 0){
+      if (currNode != null && pos == 0) {
          list.head = currNode.next;
          System.out.printf("Data at %d deleted", pos);
 
@@ -95,6 +94,21 @@ class LinkedList {
       // CASE 2 && 3
       // If position > 0 and less than list length
       // ELSE print error. Position out of bound
+      int counter = 0;
+      while (currNode != null) {
+         if (pos == counter) {
+            prev.next = currNode.next;
+            System.out.printf("Data at %d is deleted", pos);
+            break;
+         } else {
+            prev = currNode;
+            currNode = currNode.next;
+            counter++;
+         }
+      }
+
+      if (currNode == null)
+         System.out.printf("Data at %d is deleted", pos);
       return list;
    }
 }
